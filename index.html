@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>FlowTask</title>
-  <meta name="robots" content="noindex">
+  <meta name="robots" content="index, follow">
   <link rel="icon" href="img/logo.svg" type="image/svg+xml">
   <link rel="stylesheet" href="css/styles.css">
   <script src="js/main.js"></script>
@@ -39,10 +39,10 @@
     <img class="logo" src="img/logo.svg" alt="FlowTask" width="132" height="28">
 
     <nav class="nav" role="navigation" aria-label="Main navigation">
-      <div class="nav-item" data-target="features">Product</div>
-      <div class="nav-item" data-target="pricing">Pricing</div>
-      <div class="nav-item" data-target="faq">FAQ</div>
-      <div class="nav-item" data-target="trial">Trial</div>
+      <a class="nav-item" href="#features">Product</a> <!-- From div to a -->
+      <a class="nav-item" href="#pricing">Pricing</a>
+      <a class="nav-item" href="#faq">FAQ</a>
+      <a class="nav-item" href="#trial">Trial</a>
     </nav>
 
     <div class="site-header__actions">
@@ -64,7 +64,10 @@
         <div class="button button--primary button--lg" id="hero-cta">Get started</div>
         <p class="hero__note muted">Free for 14 days. No credit card required.</p>
       </div>
-      <img class="hero__image" src="img/hero.jpg">
+      <picture>
+        <source srcset="img/hero.webp" type="image/webp"> <!-- Hero image for WebP -->
+        <img class="hero__image" src="img/hero.jpg" alt="FlowTask project board overview" width="1600" height="1000" fetchpriority="high">
+      </picture>
     </div>
   </section>
 
@@ -269,7 +272,6 @@
           <p>The workspace becomes read-only for thirty days. Nothing is deleted until you ask us
             to delete it.</p>
         </div>
-        </div>
       </div>
     </div>
   </section>
@@ -281,10 +283,13 @@
         <p class="trial__lead">Fourteen days of Pro, for the whole team. We will email you once,
           on the last day.</p>
 
-        <form class="trial__form" id="trial-form">
-          <input class="trial__input" type="text" name="name" placeholder="Your name">
-          <input class="trial__input" type="email" name="email" placeholder="Work email">
-          <input class="trial__input" type="text" name="company" placeholder="Company">
+        <form class="trial__form" id="trial-form"> <!-- Added associated labels for form fields -->
+          <label for="trial-name" hidden>Your name</label>
+          <input class="trial__input" type="text" name="name" id="trial-name" placeholder="Your name">
+          <label for="trial-email" hidden>Work email</label>
+          <input class="trial__input" type="email" name="email" id="trial-email" placeholder="Work email">
+          <label for="trial-company" hidden>Company</label>
+          <input class="trial__input" type="text" name="company" id="trial-company" placeholder="Company">
           <div class="button button--invert" role="button" tabindex="0" id="trial-submit">Start free trial</div>
         </form>
       </div>
